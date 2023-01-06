@@ -89,7 +89,7 @@ public class UserRepoDB implements  Repository<Long, User> {
 
     @Override
     public void update(User entity, User newEntity) {
-        String sql = "UPDATE users SET last_name=?, first_name=?,email=? WHERE id=?";
+        String sql = "UPDATE users SET lastname=?, firstFname=?,email=? WHERE id=?";
         try (Connection connection = DriverManager.getConnection(url, username, password); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, newEntity.getLastname());

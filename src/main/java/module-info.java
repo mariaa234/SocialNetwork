@@ -13,4 +13,7 @@ module com.example.socialnetwork {
 
     opens com.example.socialnetwork.controller to javafx.fxml;
     exports com.example.socialnetwork.controller;
+
+    opens com.example.socialnetwork.domain to javafx.fxml;
+    exports com.example.socialnetwork.domain;
 }
