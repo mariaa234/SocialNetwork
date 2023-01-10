@@ -11,28 +11,38 @@ public class ServiceUser {
     }
 
 
-
     public User findUserByUsernameAndPassword(String username, String password) {
 
-        Iterable<User> users= userRepoDB.findAll();
-        for(User user: users)
-            if(username.equals(user.getUsername())&&password.equals(user.getPassword()))return user;
+        Iterable<User> users = userRepoDB.findAll();
+        for (User user : users)
+            if (username.equals(user.getUsername()) && password.equals(user.getPassword())) return user;
         return null;
     }
 
 
     public User findOneUser(long user2) {
-        Iterable<User> users= userRepoDB.findAll();
-        for(User user: users)
-            if(user.getId()==user2)return user;
+        Iterable<User> users = userRepoDB.findAll();
+        for (User user : users)
+            if (user.getId() == user2) return user;
         return null;
 
     }
 
     public User findUserByName(String firstname, String lastname) {
-        Iterable<User> users= userRepoDB.findAll();
-        for(User user: users)
-            if(firstname.equals(user.getFirstname())&&lastname.equals(user.getLastname()))return user;
+        Iterable<User> users = userRepoDB.findAll();
+        for (User user : users)
+            if (firstname.equals(user.getFirstname()) && lastname.equals(user.getLastname())) return user;
         return null;
+    }
+
+    public Long findByUsername(String username) {
+        Iterable<User> users = userRepoDB.findAll();
+        for (User user : users)
+            if (username.equals(user.getUsername())) return user.getId();
+        return (long) -1L;
+    }
+
+    public User getUserById(long userFrom) {
+        return userRepoDB.findOneById(userFrom);
     }
 }

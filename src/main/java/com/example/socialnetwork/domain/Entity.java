@@ -2,7 +2,7 @@ package com.example.socialnetwork.domain;
 
 import java.util.Objects;
 
-public class Entity<ID>  {
+public class Entity<ID> {
 
     private ID id;
 

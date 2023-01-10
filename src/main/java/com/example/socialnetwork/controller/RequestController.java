@@ -41,13 +41,13 @@ public class RequestController {
 
     @FXML
     private Button backButton;
+
     @FXML
-    private void backButtonClicked()throws IOException
-    {
+    private void backButtonClicked() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("home.fxml"));
         AnchorPane root = loader.load();
-        Stage dialogStage=new Stage();
+        Stage dialogStage = new Stage();
         dialogStage.setScene(new Scene(root));
         HomeController ctrl = loader.getController();
         ctrl.setService(serviceUser, serviceFriendship, user);
@@ -56,10 +56,11 @@ public class RequestController {
         Stage thisStage = (Stage) backButton.getScene().getWindow();
         thisStage.close();
     }
+
     @FXML
-    private void declineButtonClicked()throws IOException{
-        if(requestTableView.getSelectionModel().getSelectedItem()==null){
-            ErrorMessage msg=new ErrorMessage("you need to select a user");
+    private void declineButtonClicked() throws IOException {
+        if (requestTableView.getSelectionModel().getSelectedItem() == null) {
+            ErrorMessage msg = new ErrorMessage("you need to select a user");
             return;
         }
         UserDTO userDTO = (UserDTO) requestTableView.getSelectionModel().getSelectedItem();
@@ -68,10 +69,11 @@ public class RequestController {
         User user2 = serviceUser.findUserByName(userDTO.getName().split(" ")[1], userDTO.getName().split(" ")[0]);
         serviceFriendship.removeFriendship(this.user.getId(), user2.getId());
     }
+
     @FXML
-    private void acceptButtonClicked() throws IOException{
-        if(requestTableView.getSelectionModel().getSelectedItem()==null){
-            ErrorMessage msg=new ErrorMessage("you need to select a user");
+    private void acceptButtonClicked() throws IOException {
+        if (requestTableView.getSelectionModel().getSelectedItem() == null) {
+            ErrorMessage msg = new ErrorMessage("you need to select a user");
             return;
         }
         UserDTO userDTO = (UserDTO) requestTableView.getSelectionModel().getSelectedItem();
@@ -80,37 +82,41 @@ public class RequestController {
         User user2 = serviceUser.findUserByName(userDTO.getName().split(" ")[1], userDTO.getName().split(" ")[0]);
         serviceFriendship.updateStatus(this.user.getId(), user2.getId());
     }
+
     private User user;
     private ServiceFriendship serviceFriendship;
     private ServiceUser serviceUser;
-    public void set(User userLogedin, ServiceFriendship serviceFriendship,ServiceUser serviceUser) {
-        user=userLogedin;
-        this.serviceFriendship=serviceFriendship;
-        this.serviceUser=serviceUser;
+
+    public void set(User userLogedin, ServiceFriendship serviceFriendship, ServiceUser serviceUser) {
+        user = userLogedin;
+        this.serviceFriendship = serviceFriendship;
+        this.serviceUser = serviceUser;
         initModel();
     }
+
     Set<UserDTO> getFriends() {
         Set<UserDTO> friends = new HashSet<>();
-        for (Friendship friendship : serviceFriendship.getAllFriendships() ){
+        for (Friendship friendship : serviceFriendship.getAllFriendships()) {
 
-            if (friendship.getUser1() == this.user.getId() && friendship.getStatus() == 0 && friendship.getFrom()!=this.user.getId())
-            {
+            if (friendship.getUser1() == this.user.getId() && friendship.getStatus() == 0 && friendship.getFrom() != this.user.getId()) {
                 User user2 = serviceUser.findOneUser(friendship.getUser2());
                 friends.add(new UserDTO(user2.getFirstname() + " " + user2.getLastname()));
 
             }
-            if (friendship.getUser2() == this.user.getId() && friendship.getStatus() == 0 && friendship.getFrom()!=this.user.getId()) {
+            if (friendship.getUser2() == this.user.getId() && friendship.getStatus() == 0 && friendship.getFrom() != this.user.getId()) {
                 User user1 = serviceUser.findOneUser(friendship.getUser1());
                 friends.add(new UserDTO(user1.getFirstname() + " " + user1.getLastname()));
             }
         }
         return friends;
     }
+
     @FXML
     public void initialize() {
         this.requesteTableColumn.setCellValueFactory(new PropertyValueFactory<UserDTO, String>("name"));
         this.requestTableView.setItems(this.model);
     }
+
     private void initModel() {
 
         Set<UserDTO> friends = getFriends();

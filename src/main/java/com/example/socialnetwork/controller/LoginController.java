@@ -29,21 +29,23 @@ public class LoginController {
     Label welcomeText;
 
     ServiceFriendship serviceFriendship;
+
     private void init() {
 
         UserRepoDB userDatabaseRepository = new UserRepoDB("jdbc:postgresql://localhost:5432/postgres", "postgres", "123");
         this.serviceUser = new ServiceUser(userDatabaseRepository);
-        FriendshipRepoDB friendshipRepoDB=new FriendshipRepoDB("jdbc:postgresql://localhost:5432/postgres", "postgres", "123");
-        this.serviceFriendship=new ServiceFriendship(userDatabaseRepository,friendshipRepoDB);
+        FriendshipRepoDB friendshipRepoDB = new FriendshipRepoDB("jdbc:postgresql://localhost:5432/postgres", "postgres", "123");
+        this.serviceFriendship = new ServiceFriendship(userDatabaseRepository, friendshipRepoDB);
     }
+
     @FXML
-    void loginButtonClicked() throws IOException{
+    void loginButtonClicked() throws IOException {
         if (loginUsername1.getText().isEmpty()) {
-            ErrorMessage msg=new ErrorMessage("invalid username");
+            ErrorMessage msg = new ErrorMessage("invalid username");
             return;
         }
         if (loginPassword1.getText().isEmpty()) {
-            ErrorMessage msg=new ErrorMessage("Invalid password!");
+            ErrorMessage msg = new ErrorMessage("Invalid password!");
             return;
         }
 
@@ -51,13 +53,13 @@ public class LoginController {
 
         User user = serviceUser.findUserByUsernameAndPassword(loginUsername1.getText(), loginPassword1.getText());
         if (user == null) {
-            ErrorMessage msg=new ErrorMessage("Password or username incorrect!");
+            ErrorMessage msg = new ErrorMessage("Password or username incorrect!");
             return;
         }
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("home.fxml"));
         AnchorPane root = loader.load();
-        Stage dialogStage=new Stage();
+        Stage dialogStage = new Stage();
         dialogStage.setScene(new Scene(root));
         HomeController ctrl = loader.getController();
         ctrl.setService(serviceUser, serviceFriendship, user);
@@ -68,7 +70,6 @@ public class LoginController {
 
 
     }
-
 
 
 }

@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.HashSet;
 import java.util.Set;
 
-public class UserRepoDB implements  Repository<Long, User> {
+public class UserRepoDB implements Repository<Long, User> {
 
     private String url;
     private String username;
@@ -78,7 +78,7 @@ public class UserRepoDB implements  Repository<Long, User> {
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
 
-                user = new User(userName,lastName, firstName,  email,password);
+                user = new User(userName, lastName, firstName, email, password);
                 user.setId(l);
             }
             return user;
@@ -116,7 +116,7 @@ public class UserRepoDB implements  Repository<Long, User> {
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
 
-                User user = new User( userName,lastName, firstName,email, password);
+                User user = new User(userName, lastName, firstName, email, password);
                 user.setId(id);
                 users.add(user);
             }

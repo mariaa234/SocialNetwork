@@ -19,15 +19,16 @@ public class ServiceFriendship {
     }
 
     public void removeFriendship(Long id1, Long id2) {
-        if(id1<id2)
-        friendshipRepoDB.delete(new Tuple<>(id1,id2));
-        else friendshipRepoDB.delete(new Tuple<>(id2,id1));
+        if (id1 < id2)
+            friendshipRepoDB.delete(new Tuple<>(id1, id2));
+        else friendshipRepoDB.delete(new Tuple<>(id2, id1));
     }
 
     public int statusUsers(Long id1, Long id2) {
-        if( friendshipRepoDB.findOneById(new Tuple<>(id1,id2))==null &&friendshipRepoDB.findOneById(new Tuple<>(id2,id1))==null) return -1;
-        if(id1<id2)return friendshipRepoDB.findOneById(new Tuple<>(id1,id2)).getStatus();
-        return friendshipRepoDB.findOneById(new Tuple<>(id2,id1)).getStatus();
+        if (friendshipRepoDB.findOneById(new Tuple<>(id1, id2)) == null && friendshipRepoDB.findOneById(new Tuple<>(id2, id1)) == null)
+            return -1;
+        if (id1 < id2) return friendshipRepoDB.findOneById(new Tuple<>(id1, id2)).getStatus();
+        return friendshipRepoDB.findOneById(new Tuple<>(id2, id1)).getStatus();
     }
 
     public void updateStatus(Long id1, Long id2) {
@@ -46,8 +47,8 @@ public class ServiceFriendship {
     }
 
     public Long requestFrom(Long id1, Long id2) {
-        if(id1<id2)return friendshipRepoDB.findOneById(new Tuple<>(id1,id2)).getFrom();
-        return friendshipRepoDB.findOneById(new Tuple<>(id2,id1)).getFrom();
+        if (id1 < id2) return friendshipRepoDB.findOneById(new Tuple<>(id1, id2)).getFrom();
+        return friendshipRepoDB.findOneById(new Tuple<>(id2, id1)).getFrom();
 
     }
 

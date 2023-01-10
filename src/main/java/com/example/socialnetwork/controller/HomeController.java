@@ -5,7 +5,9 @@ import com.example.socialnetwork.domain.ErrorMessage;
 import com.example.socialnetwork.domain.Friendship;
 import com.example.socialnetwork.domain.User;
 import com.example.socialnetwork.domain.UserDTO;
+import com.example.socialnetwork.repo.MessageRepoBD;
 import com.example.socialnetwork.service.ServiceFriendship;
+import com.example.socialnetwork.service.ServiceHandleMessages;
 import com.example.socialnetwork.service.ServiceUser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -53,20 +55,20 @@ public class HomeController {
 
     @FXML
     TextField userToSearch;
+    ServiceHandleMessages serviceHandleMessages;
 
-
-    public void setService(ServiceUser serviceUser,ServiceFriendship serviceFriendship, User user) {
-        this.serviceFriendship=serviceFriendship;
-        this.serviceUser=serviceUser;
-        this.userLogedin=user;
+    public void setService(ServiceUser serviceUser, ServiceFriendship serviceFriendship, User user) {
+        this.serviceFriendship = serviceFriendship;
+        this.serviceUser = serviceUser;
+        this.userLogedin = user;
+        this.serviceHandleMessages=new ServiceHandleMessages(new MessageRepoBD("jdbc:postgresql://localhost:5432/postgres", "postgres", "123"));
         initModel();
     }
 
     Set<UserDTO> getFriends() {
         Set<UserDTO> friends = new HashSet<>();
-        for (Friendship friendship : serviceFriendship.getAllFriendships() ){
-            if (friendship.getUser1() == this.userLogedin.getId() && friendship.getStatus() == 1)
-            {
+        for (Friendship friendship : serviceFriendship.getAllFriendships()) {
+            if (friendship.getUser1() == this.userLogedin.getId() && friendship.getStatus() == 1) {
                 User user2 = serviceUser.findOneUser(friendship.getUser2());
                 friends.add(new UserDTO(user2.getFirstname() + " " + user2.getLastname()));
 
@@ -78,21 +80,24 @@ public class HomeController {
         }
         return friends;
     }
+
     @FXML
     public void initialize() {
         this.columnFriends.setCellValueFactory(new PropertyValueFactory<UserDTO, String>("name"));
         this.userFriends.setItems(this.model);
     }
+
     private void initModel() {
 
         Set<UserDTO> friends = getFriends();
         List<UserDTO> friendsList = StreamSupport.stream(friends.spliterator(), false).collect(Collectors.toList());
         this.model.setAll(friendsList);
     }
+
     @FXML
     void deleteFriendButtonClicked() throws IOException {
-        if(userFriends.getSelectionModel().getSelectedItem()==null){
-            ErrorMessage msg=new ErrorMessage("you need to select a user");
+        if (userFriends.getSelectionModel().getSelectedItem() == null) {
+            ErrorMessage msg = new ErrorMessage("you need to select a user");
             return;
         }
         UserDTO userDTO = (UserDTO) userFriends.getSelectionModel().getSelectedItem();
@@ -105,39 +110,66 @@ public class HomeController {
     }
 
     @FXML
-    void searchButtonClicked() throws IOException{
-        if(userToSearch.getText().isEmpty())
-        {
-            ErrorMessage msg=new ErrorMessage("Search bar is empty");
+    void searchButtonClicked() throws IOException {
+        if (userToSearch.getText().isEmpty()) {
+            ErrorMessage msg = new ErrorMessage("Search bar is empty");
             return;
         }
-        User user=serviceUser.findUserByName(userToSearch.getText().split(" ")[0],userToSearch.getText().split(" ")[1]);
-        if(user==null)
-        {
-            ErrorMessage msg=new ErrorMessage("User doesn't exist");
+        User user = serviceUser.findUserByName(userToSearch.getText().split(" ")[0], userToSearch.getText().split(" ")[1]);
+        if (user == null) {
+            ErrorMessage msg = new ErrorMessage("User doesn't exist");
             return;
         }
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("search.fxml"));
         AnchorPane root = loader.load();
-        Stage dialogStage=new Stage();
+        Stage dialogStage = new Stage();
         dialogStage.setScene(new Scene(root));
         SearchController srch = loader.getController();
-        srch.set( user, userLogedin, serviceFriendship,serviceUser);
+        srch.set(user, userLogedin, serviceFriendship, serviceUser);
         dialogStage.setTitle(user.getUsername());
         dialogStage.show();
         Stage thisStage = (Stage) searchButton.getScene().getWindow();
         thisStage.close();
 
     }
+
     @FXML
-    void requestButtonClicked() throws IOException{
+    void requestButtonClicked() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("request.fxml"));
         AnchorPane root = loader.load();
-        Stage dialogStage=new Stage();
+        Stage dialogStage = new Stage();
         dialogStage.setScene(new Scene(root));
         RequestController rqst = loader.getController();
-        rqst.set( userLogedin, serviceFriendship,serviceUser);
+        rqst.set(userLogedin, serviceFriendship, serviceUser);
         dialogStage.setTitle("Friends Request");
+        dialogStage.show();
+        Stage thisStage = (Stage) requestButton.getScene().getWindow();
+        thisStage.close();
+    }
+    @FXML
+    private void sendMessageButtonClicked()throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("sendMessages.fxml"));
+        AnchorPane root = loader.load();
+        Stage dialogStage = new Stage();
+        dialogStage.setScene(new Scene(root));
+        SendMessagesController sndmsg = loader.getController();
+        sndmsg.set(userLogedin, serviceFriendship, serviceUser,serviceHandleMessages);
+        dialogStage.setTitle("Send Message");
+        dialogStage.show();
+        Stage thisStage = (Stage) requestButton.getScene().getWindow();
+        thisStage.close();
+    }
+    @FXML
+    private void myMessagesButtonClicked()throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("myMessages.fxml"));
+        AnchorPane root = loader.load();
+        Stage dialogStage = new Stage();
+        dialogStage.setScene(new Scene(root));
+        MyMessagesController mymsg = loader.getController();
+        mymsg.set(userLogedin, serviceFriendship, serviceUser,serviceHandleMessages);
+        dialogStage.setTitle("My Messages");
         dialogStage.show();
         Stage thisStage = (Stage) requestButton.getScene().getWindow();
         thisStage.close();

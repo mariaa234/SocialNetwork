@@ -22,7 +22,7 @@ public class SearchController {
 
     private ServiceFriendship serviceFriendship;
     private User userSearched;
-    private  ServiceUser serviceUser;
+    private ServiceUser serviceUser;
     @FXML
     Text userSearchedName;
     @FXML
@@ -36,38 +36,39 @@ public class SearchController {
     private Button removeRequestButton;
     @FXML
     private Button addFriendButton;
+
     @FXML
-    private void removeRequestButtonClicked()throws IOException{
-        serviceFriendship.removeFriendship(userLogin.getId(),userSearched.getId());
+    private void removeRequestButtonClicked() throws IOException {
+        serviceFriendship.removeFriendship(userLogin.getId(), userSearched.getId());
         acceptRequestButton.setVisible(false);
         addFriendButton.setVisible(true);
         removeRequestButton.setVisible(false);
         removeFriendButton.setVisible(false);
     }
+
     @FXML
-    private void acceptRequestButtonClicked()throws IOException
-    {
-        serviceFriendship.updateStatus(userLogin.getId(),userSearched.getId());
+    private void acceptRequestButtonClicked() throws IOException {
+        serviceFriendship.updateStatus(userLogin.getId(), userSearched.getId());
         acceptRequestButton.setVisible(false);
         addFriendButton.setVisible(false);
         removeRequestButton.setVisible(false);
         removeFriendButton.setVisible(true);
     }
+
     @FXML
-    private void removeFriendButtonClicked()throws IOException
-    {
-        serviceFriendship.removeFriendship(userLogin.getId(),userSearched.getId());
+    private void removeFriendButtonClicked() throws IOException {
+        serviceFriendship.removeFriendship(userLogin.getId(), userSearched.getId());
         addFriendButton.setVisible(true);
         removeRequestButton.setVisible(false);
         removeFriendButton.setVisible(false);
     }
+
     @FXML
-    private void backButtonClicked()throws IOException
-    {
+    private void backButtonClicked() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("home.fxml"));
         AnchorPane root = loader.load();
-        Stage dialogStage=new Stage();
+        Stage dialogStage = new Stage();
         dialogStage.setScene(new Scene(root));
         HomeController ctrl = loader.getController();
         ctrl.setService(serviceUser, serviceFriendship, userLogin);
@@ -78,40 +79,39 @@ public class SearchController {
     }
 
     @FXML
-    private void addFriendButtonClicked() throws IOException{
-        Friendship friendship=new Friendship(userLogin.getId(),userSearched.getId(),userLogin.getId());
+    private void addFriendButtonClicked() throws IOException {
+        Friendship friendship = new Friendship(userLogin.getId(), userSearched.getId(), userLogin.getId());
         serviceFriendship.addFriendship(friendship);
         addFriendButton.setVisible(false);
         acceptRequestButton.setVisible(false);
         removeRequestButton.setVisible(true);
     }
-    public void set(User user,User userLogin, ServiceFriendship serviceFriendship, ServiceUser serviceUser) {
-        this.userSearched=user;
-        this.userLogin=userLogin;
-        this.serviceFriendship=serviceFriendship;
-        this.serviceUser=serviceUser;
-        userSearchedName.setText(user.getFirstname()+" "+user.getLastname());
 
-        int status=serviceFriendship.statusUsers(userLogin.getId(),userSearched.getId());
+    public void set(User user, User userLogin, ServiceFriendship serviceFriendship, ServiceUser serviceUser) {
+        this.userSearched = user;
+        this.userLogin = userLogin;
+        this.serviceFriendship = serviceFriendship;
+        this.serviceUser = serviceUser;
+        userSearchedName.setText(user.getFirstname() + " " + user.getLastname());
 
-        if (status==1){
+        int status = serviceFriendship.statusUsers(userLogin.getId(), userSearched.getId());
+
+        if (status == 1) {
             addFriendButton.setVisible(false);
             acceptRequestButton.setVisible(false);
             removeRequestButton.setVisible(false);
             return;
         }
-        if(status==-1)
-        {
+        if (status == -1) {
             removeFriendButton.setVisible(false);
             acceptRequestButton.setVisible(false);
             removeRequestButton.setVisible(false);
             return;
         }
-        Long r_from=serviceFriendship.requestFrom(userLogin.getId(),userSearched.getId());
+        Long r_from = serviceFriendship.requestFrom(userLogin.getId(), userSearched.getId());
         removeFriendButton.setVisible(false);
         addFriendButton.setVisible(false);
-        if(r_from==userLogin.getId())
-        {
+        if (r_from == userLogin.getId()) {
             acceptRequestButton.setVisible(false);
         }
     }

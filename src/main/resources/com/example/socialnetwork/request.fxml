@@ -9,47 +9,53 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="459.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.socialnetwork.controller.RequestController">
-   <children>
-      <ImageView fitHeight="406.0" fitWidth="475.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="C:\Users\maria\OneDrive\Desktop\alb.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="380.0" fitWidth="475.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="C:\Users\maria\OneDrive\Desktop\alb.jpg" />
-         </image>
-      </ImageView>
-      <TableView fx:id="requestTableView" layoutX="28.0" layoutY="102.0" prefHeight="324.0" prefWidth="200.0">
-        <columns>
-          <TableColumn fx:id="requesteTableColumn" prefWidth="199.0" text="Request" />
-        </columns>
-      </TableView>
-      <Text fill="#8477bf" layoutX="28.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Friends Request" wrappingWidth="344.13671875">
-         <font>
-            <Font name="Calibri Light" size="48.0" />
-         </font>
-      </Text>
-      <Button fx:id="acceptButton" layoutX="248.0" layoutY="102.0" mnemonicParsing="false" onAction="#acceptButtonClicked" prefHeight="25.0" prefWidth="200.0" text="Accept" textFill="#8477bf">
-         <font>
-            <Font name="Calibri Bold" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="declineButton" layoutX="248.0" layoutY="151.0" mnemonicParsing="false" onAction="#declineButtonClicked" prefHeight="25.0" prefWidth="200.0" text="Decline" textFill="#8477bf">
-         <font>
-            <Font name="Calibri Bold" size="14.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="209.0" fitWidth="211.0" layoutX="248.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="C:\Users\maria\OneDrive\Desktop\request.jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="backButton" layoutX="248.0" layoutY="203.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="25.0" prefWidth="200.0" text="Back to home" textFill="#8477bf">
-         <font>
-            <Font name="Calibri Bold" size="14.0" />
-         </font>
-      </Button>
-   </children>
+<AnchorPane prefHeight="459.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.socialnetwork.controller.RequestController">
+    <children>
+        <ImageView fitHeight="406.0" fitWidth="475.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="C:\Users\maria\OneDrive\Desktop\alb.jpg"/>
+            </image>
+        </ImageView>
+        <ImageView fitHeight="380.0" fitWidth="475.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="C:\Users\maria\OneDrive\Desktop\alb.jpg"/>
+            </image>
+        </ImageView>
+        <TableView fx:id="requestTableView" layoutX="28.0" layoutY="102.0" prefHeight="324.0" prefWidth="200.0">
+            <columns>
+                <TableColumn fx:id="requesteTableColumn" prefWidth="199.0" text="Request"/>
+            </columns>
+        </TableView>
+        <Text fill="#8477bf" layoutX="28.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Friends Request"
+              wrappingWidth="344.13671875">
+            <font>
+                <Font name="Calibri Light" size="48.0"/>
+            </font>
+        </Text>
+        <Button fx:id="acceptButton" layoutX="248.0" layoutY="102.0" mnemonicParsing="false"
+                onAction="#acceptButtonClicked" prefHeight="25.0" prefWidth="200.0" text="Accept" textFill="#8477bf">
+            <font>
+                <Font name="Calibri Bold" size="14.0"/>
+            </font>
+        </Button>
+        <Button fx:id="declineButton" layoutX="248.0" layoutY="151.0" mnemonicParsing="false"
+                onAction="#declineButtonClicked" prefHeight="25.0" prefWidth="200.0" text="Decline" textFill="#8477bf">
+            <font>
+                <Font name="Calibri Bold" size="14.0"/>
+            </font>
+        </Button>
+        <ImageView fitHeight="209.0" fitWidth="211.0" layoutX="248.0" layoutY="232.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="C:\Users\maria\OneDrive\Desktop\request.jpg"/>
+            </image>
+        </ImageView>
+        <Button fx:id="backButton" layoutX="248.0" layoutY="203.0" mnemonicParsing="false" onAction="#backButtonClicked"
+                prefHeight="25.0" prefWidth="200.0" text="Back to home" textFill="#8477bf">
+            <font>
+                <Font name="Calibri Bold" size="14.0"/>
+            </font>
+        </Button>
+    </children>
 </AnchorPane>

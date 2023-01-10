@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FriendshipRepoDB implements Repository<Tuple<Long, Long>,Friendship> {
+public class FriendshipRepoDB implements Repository<Tuple<Long, Long>, Friendship> {
 
     private String url;
     private String username;

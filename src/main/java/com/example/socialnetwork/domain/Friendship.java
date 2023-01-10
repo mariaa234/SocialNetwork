@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class Friendship extends Entity<Tuple<Long, Long>>{
+public class Friendship extends Entity<Tuple<Long, Long>> {
     private long user1;
     private long user2;
     private String friendsFrom;
