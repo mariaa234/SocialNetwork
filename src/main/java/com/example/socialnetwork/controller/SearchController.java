@@ -1,10 +1,8 @@
 package com.example.socialnetwork.controller;
 
 import com.example.socialnetwork.Main;
-import com.example.socialnetwork.domain.ErrorMessage;
 import com.example.socialnetwork.domain.Friendship;
 import com.example.socialnetwork.domain.User;
-import com.example.socialnetwork.domain.UserDTO;
 import com.example.socialnetwork.service.ServiceFriendship;
 import com.example.socialnetwork.service.ServiceUser;
 import javafx.fxml.FXML;

@@ -10,9 +10,10 @@ import com.example.socialnetwork.service.ServiceUser;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,17 +26,31 @@ public class LoginController {
     PasswordField loginPassword1;
     @FXML
     Button loginButton1;
-    @FXML
-    Label welcomeText;
 
+    @FXML
+    Button createANewAccountButton;
     ServiceFriendship serviceFriendship;
 
     private void init() {
-
         UserRepoDB userDatabaseRepository = new UserRepoDB("jdbc:postgresql://localhost:5432/postgres", "postgres", "123");
         this.serviceUser = new ServiceUser(userDatabaseRepository);
         FriendshipRepoDB friendshipRepoDB = new FriendshipRepoDB("jdbc:postgresql://localhost:5432/postgres", "postgres", "123");
         this.serviceFriendship = new ServiceFriendship(userDatabaseRepository, friendshipRepoDB);
+    }
+
+    @FXML
+    void createANewAccountButtonClicked() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("newAccount.fxml"));
+        AnchorPane root = loader.load();
+        Stage dialogStage = new Stage();
+        dialogStage.setScene(new Scene(root));
+        NewAccount ctrl = loader.getController();
+        ctrl.setService(serviceUser, serviceFriendship);
+        dialogStage.setTitle("Create account");
+        dialogStage.show();
+        Stage thisStage = (Stage) loginButton1.getScene().getWindow();
+        thisStage.close();
+
     }
 
     @FXML

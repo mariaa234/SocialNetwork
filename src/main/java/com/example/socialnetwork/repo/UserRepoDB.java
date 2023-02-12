@@ -18,19 +18,7 @@ public class UserRepoDB implements Repository<Long, User> {
         this.password = password;
     }
 
-    @Override
-    public int size() {
-        int size = 0;
-        try (Connection connection = DriverManager.getConnection(url, username, password); PreparedStatement statement = connection.prepareStatement("SELECT COUNT(id) AS size FROM users"); ResultSet resultSet = statement.executeQuery()) {
 
-            while (resultSet.next()) {
-                size = resultSet.getInt("size");
-            }
-            return size;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     @Override
     public void save(User entity) {

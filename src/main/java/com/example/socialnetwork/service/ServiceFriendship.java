@@ -19,8 +19,7 @@ public class ServiceFriendship {
     }
 
     public void removeFriendship(Long id1, Long id2) {
-        if (id1 < id2)
-            friendshipRepoDB.delete(new Tuple<>(id1, id2));
+        if (id1 < id2) friendshipRepoDB.delete(new Tuple<>(id1, id2));
         else friendshipRepoDB.delete(new Tuple<>(id2, id1));
     }
 

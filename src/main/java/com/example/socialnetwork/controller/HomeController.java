@@ -14,7 +14,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -50,8 +53,6 @@ public class HomeController {
     @FXML
     Button MyMessagesButton;
 
-    @FXML
-    Button sendMessageButton;
 
     @FXML
     TextField userToSearch;
@@ -146,20 +147,7 @@ public class HomeController {
         Stage thisStage = (Stage) requestButton.getScene().getWindow();
         thisStage.close();
     }
-    @FXML
-    private void sendMessageButtonClicked()throws IOException
-    {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("sendMessages.fxml"));
-        AnchorPane root = loader.load();
-        Stage dialogStage = new Stage();
-        dialogStage.setScene(new Scene(root));
-        SendMessagesController sndmsg = loader.getController();
-        sndmsg.set(userLogedin, serviceFriendship, serviceUser,serviceHandleMessages);
-        dialogStage.setTitle("Send Message");
-        dialogStage.show();
-        Stage thisStage = (Stage) requestButton.getScene().getWindow();
-        thisStage.close();
-    }
+
     @FXML
     private void myMessagesButtonClicked()throws IOException
     {

@@ -14,17 +14,17 @@
     <children>
         <ImageView fitHeight="468.0" fitWidth="580.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="C:\Users\maria\OneDrive\Desktop\alb.jpg" />
+                <Image url="D:\facultate\map\SocialNetwork\alb.jpg" />
             </image>
         </ImageView>
         <ImageView fitHeight="458.0" fitWidth="571.0" layoutX="9.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="C:\Users\maria\OneDrive\Desktop\alb.jpg" />
+                <Image url="D:\facultate\map\SocialNetwork\alb.jpg" />
             </image>
         </ImageView>
         <ImageView fitHeight="309.0" fitWidth="305.0" layoutX="275.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="C:\Users\maria\OneDrive\Desktop\home.jpg" />
+                <Image url="D:\facultate\map\SocialNetwork\home.jpg" />
             </image>
         </ImageView>
         <Text id="HelloText" fill="#8477bf" layoutX="48.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello!" wrappingWidth="399.134765625">
@@ -32,37 +32,32 @@
                 <Font name="Calibri" size="64.0" />
             </font>
         </Text>
-        <TableView fx:id="userFriends" layoutX="48.0" layoutY="128.0" prefHeight="389.0" prefWidth="215.0">
+        <TableView fx:id="userFriends" layoutX="48.0" layoutY="128.0" prefHeight="389.0" prefWidth="215.0" style="-fx-background-color: white; -fx-border-color: #8477bf;">
             <columns>
                 <TableColumn id="friendsTable" fx:id="columnFriends" prefWidth="214.0" text="My friends" />
             </columns>
         </TableView>
-        <Button id="deleteButton" fx:id="deleteFriendButton" layoutX="328.0" layoutY="206.0" mnemonicParsing="false" onAction="#deleteFriendButtonClicked" prefHeight="25.0" prefWidth="202.0" text="Delete friend" textFill="#8377bde6">
+        <Button id="deleteButton" fx:id="deleteFriendButton" layoutX="328.0" layoutY="218.0" mnemonicParsing="false" onAction="#deleteFriendButtonClicked" prefHeight="25.0" prefWidth="202.0" style="-fx-background-color: #8477bf;" text="Delete friend" textFill="#ffffffe5">
             <font>
                 <Font name="Calibri Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="searchButton" layoutX="327.0" layoutY="168.0" mnemonicParsing="false" onAction="#searchButtonClicked" prefHeight="25.0" prefWidth="202.0" text="Search" textFill="#8477bf">
+        <Button fx:id="searchButton" layoutX="327.0" layoutY="176.0" mnemonicParsing="false" onAction="#searchButtonClicked" prefHeight="25.0" prefWidth="202.0" style="-fx-background-color: #8477bf;" text="Search" textFill="WHITE">
             <font>
                 <Font name="Calibri Bold" size="14.0" />
             </font>
         </Button>
-        <TextField fx:id="userToSearch" layoutX="327.0" layoutY="128.0" prefHeight="25.0" prefWidth="202.0">
+        <TextField fx:id="userToSearch" layoutX="327.0" layoutY="136.0" prefHeight="25.0" prefWidth="202.0" style="-fx-border-color: #8477bf;">
             <font>
                 <Font name="Calibri" size="14.0" />
             </font>
         </TextField>
-        <Button id="requestButton" fx:id="requestButton" layoutX="328.0" layoutY="245.0" mnemonicParsing="false" onAction="#requestButtonClicked" prefHeight="25.0" prefWidth="202.0" text="Request" textFill="#8477bf">
+        <Button id="requestButton" fx:id="requestButton" layoutX="328.0" layoutY="257.0" mnemonicParsing="false" onAction="#requestButtonClicked" prefHeight="25.0" prefWidth="202.0" style="-fx-background-color: #8477bf;" text="Request" textFill="WHITE">
             <font>
                 <Font name="Calibri Bold" size="14.0" />
             </font>
         </Button>
-        <Button id="myMessagesButton" fx:id="MyMessagesButton" layoutX="328.0" layoutY="284.0" mnemonicParsing="false" onAction="#myMessagesButtonClicked" prefHeight="27.0" prefWidth="202.0" text="My messages" textFill="#8477bf">
-            <font>
-                <Font name="Calibri Bold" size="14.0" />
-            </font>
-        </Button>
-        <Button id="sendMessagesButton" fx:id="sendMessageButton" layoutX="328.0" layoutY="323.0" mnemonicParsing="false" onAction="#sendMessageButtonClicked" prefHeight="27.0" prefWidth="202.0" text="Send message" textFill="#8477bf">
+        <Button id="myMessagesButton" fx:id="MyMessagesButton" layoutX="327.0" layoutY="296.0" mnemonicParsing="false" onAction="#myMessagesButtonClicked" prefHeight="27.0" prefWidth="202.0" style="-fx-background-color: #8477bf;" text="My messages" textFill="WHITE">
             <font>
                 <Font name="Calibri Bold" size="14.0" />
             </font>

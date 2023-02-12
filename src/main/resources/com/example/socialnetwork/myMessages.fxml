@@ -1,39 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.socialnetwork.controller.MyMessagesController">
     <children>
-        <Text fill="#8477bf" layoutX="35.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Messages">
+      <ImageView fitHeight="440.0" fitWidth="660.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="D:\facultate\map\SocialNetwork\mesaje.jfif" />
+         </image>
+      </ImageView>
+        <Text fill="#8477bf" layoutX="198.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Messages">
             <font>
                 <Font name="Calibri" size="48.0" />
             </font>
         </Text>
-        <TableView fx:id="messagesTableView" layoutX="35.0" layoutY="100.0" onMouseClicked="#messageSelected" prefHeight="232.0" prefWidth="213.0">
+        <TableView fx:id="messagesTableView" layoutX="92.0" layoutY="100.0" onMouseClicked="#messageSelected" prefHeight="232.0" prefWidth="213.0">
             <columns>
-                <TableColumn fx:id="fromColumn" prefWidth="75.0" text="From" />
-                <TableColumn fx:id="subjectColumn" prefWidth="137.0" text="Subject" />
+                <TableColumn fx:id="fromColumn" prefWidth="212.0" text="Friends" />
             </columns>
         </TableView>
-        <Button fx:id="backButton" layoutX="36.0" layoutY="352.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="25.0" prefWidth="213.0" text="Back home" textFill="#8477bf">
+        <Button fx:id="backButton" layoutX="92.0" layoutY="340.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="33.0" prefWidth="213.0" style="-fx-background-color: #8477bf;" text="Back home" textFill="WHITE">
             <font>
                 <Font name="Calibri Bold" size="14.0" />
             </font>
         </Button>
-      <Pane layoutX="318.0" layoutY="116.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #8477bf;">
-         <children>
-            <Text fx:id="messageText" accessibleRole="TEXT_AREA" fill="WHITE" fontSmoothingType="LCD" layoutX="8.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="TOP" wrappingWidth="184.0">
-               <font>
-                  <Font name="Calibri Bold Italic" size="18.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
+      <ScrollPane fx:id="conversation" layoutX="356.0" layoutY="100.0" prefHeight="284.0" prefWidth="219.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="274.0" prefWidth="211.0">
+               <children>
+                  <TextField fx:id="messegeText" layoutX="7.0" layoutY="247.0" prefHeight="27.0" prefWidth="156.0" style="-fx-border-color: #8477bf;">
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                  </TextField>
+                  <Button fx:id="sendButton" layoutX="164.0" layoutY="247.0" mnemonicParsing="false" onAction="#sendButtonClicked" prefHeight="27.0" prefWidth="54.0" style="-fx-background-color: #8477bf;" text="send" textFill="WHITE" />
+                  <GridPane fx:id="messegeGrid" layoutX="7.0" layoutY="26.0" prefHeight="200.0" prefWidth="200.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
     </children>
 </AnchorPane>

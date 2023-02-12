@@ -78,7 +78,6 @@ public class RequestController {
         }
         UserDTO userDTO = (UserDTO) requestTableView.getSelectionModel().getSelectedItem();
         model.remove(userDTO);
-
         User user2 = serviceUser.findUserByName(userDTO.getName().split(" ")[1], userDTO.getName().split(" ")[0]);
         serviceFriendship.updateStatus(this.user.getId(), user2.getId());
     }

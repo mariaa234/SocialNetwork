@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<?import javafx.scene.control.TextField?>
+<AnchorPane prefHeight="578.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.socialnetwork.controller.NewAccount">
+   <children>
+      <GridPane layoutX="41.0" layoutY="94.0" prefHeight="344.0" prefWidth="363.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="181.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="180.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <PasswordField fx:id="passwordConfText" style="-fx-border-color: #8477bf;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Text fill="#8477bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Firstname">
+               <font>
+                  <Font name="Calibri Italic" size="24.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="4" />
+            <Button fx:id="backToLoginButton" mnemonicParsing="false" onAction="#backToLoginButtonClicked" prefHeight="25.0" prefWidth="380.0" style="-fx-background-color: #8477bf;" text="Back to LogIn" textFill="WHITE" GridPane.columnSpan="2" GridPane.rowIndex="7">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="NewAccountCreate" mnemonicParsing="false" onAction="#NewAccountCreateClicked" prefHeight="25.0" prefWidth="370.0" style="-fx-background-color: #8477bf;" text="New Account" textFill="WHITE" GridPane.columnSpan="2" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Button>
+            <Text fill="#8477bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Calibri Italic" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#8477bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Calibri Italic" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#8477bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Calibri Italic" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#8477bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Calibri Italic" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#8477bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm password" textAlignment="CENTER" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Calibri Italic" size="24.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="passwordText" style="-fx-border-color: #8477bf;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="emailText" style="-fx-border-color: #8477bf;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="usernameText" style="-fx-border-color: #8477bf;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="lastnameText" style="-fx-border-color: #8477bf;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="firstnameText" style="-fx-border-color: #8477bf;" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Text fill="#8477bf" layoutX="35.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new account" wrappingWidth="353.21875">
+         <font>
+            <Font name="Calibri" size="36.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -4,7 +4,7 @@ import com.example.socialnetwork.domain.User;
 import com.example.socialnetwork.repo.UserRepoDB;
 
 public class ServiceUser {
-    private UserRepoDB userRepoDB;
+    private final UserRepoDB userRepoDB;
 
     public ServiceUser(UserRepoDB userRepoDB) {
         this.userRepoDB = userRepoDB;
@@ -28,7 +28,7 @@ public class ServiceUser {
 
     }
 
-    public User findUserByName(String firstname, String lastname) {
+    public User findUserByName(String lastname, String firstname) {
         Iterable<User> users = userRepoDB.findAll();
         for (User user : users)
             if (firstname.equals(user.getFirstname()) && lastname.equals(user.getLastname())) return user;
@@ -39,10 +39,11 @@ public class ServiceUser {
         Iterable<User> users = userRepoDB.findAll();
         for (User user : users)
             if (username.equals(user.getUsername())) return user.getId();
-        return (long) -1L;
+        return -1L;
     }
 
-    public User getUserById(long userFrom) {
-        return userRepoDB.findOneById(userFrom);
+
+    public void addUser(User user) {
+        userRepoDB.save(user);
     }
 }

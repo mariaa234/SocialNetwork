@@ -1,37 +1,33 @@
 package com.example.socialnetwork.domain;
 
+import java.time.LocalDateTime;
+import java.util.Objects;
+
 public class Message {
-   private String subject;
    private String content;
     private long userFrom;
     private long userTo;
+    private LocalDateTime date;
 
-    public Message(String subject, String content, long userFrom, long userTo) {
-        this.subject = subject;
+    public Message(String content, long userFrom, long userTo) {
         this.content = content;
         this.userFrom = userFrom;
         this.userTo = userTo;
+        date=LocalDateTime.now();
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public void setContent(String content) {
+    public Message( String content, long userFrom, long userTo, String date) {
         this.content = content;
-    }
-
-    public void setUserFrom(long userFrom) {
         this.userFrom = userFrom;
-    }
-
-    public void setUserTo(long userTo) {
         this.userTo = userTo;
+        this.date = LocalDateTime.parse(date);
     }
 
-    public String getSubject() {
-        return subject;
+
+    public String getDate() {
+        return date.toString();
     }
+    public LocalDateTime getData(){return date;}
 
     public String getContent() {
         return content;
@@ -45,4 +41,8 @@ public class Message {
         return userTo;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(date);
+    }
 }

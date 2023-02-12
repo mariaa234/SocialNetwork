@@ -67,10 +67,6 @@ public class Friendship extends Entity<Tuple<Long, Long>> {
         return from;
     }
 
-    public void setFrom(Long from) {
-        this.from = from;
-    }
-
     @Override
     public String toString() {
         return "Friendship{" +

@@ -1,7 +1,6 @@
 package com.example.socialnetwork.repo;
 
 public interface Repository<ID, E> {
-    int size();
 
     void save(E entity);
 

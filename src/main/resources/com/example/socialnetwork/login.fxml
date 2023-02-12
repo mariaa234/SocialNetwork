@@ -12,60 +12,53 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane prefHeight="586.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="com.example.socialnetwork.controller.LoginController">
+<GridPane prefHeight="586.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.socialnetwork.controller.LoginController">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="140.0"/>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="106.0"/>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="459.0" minWidth="10.0" prefWidth="134.0"/>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="459.0" minWidth="10.0" prefWidth="144.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="140.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="106.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="459.0" minWidth="10.0" prefWidth="134.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="459.0" minWidth="10.0" prefWidth="144.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints/>
-        <RowConstraints maxHeight="248.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="248.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="248.0" minHeight="0.0" prefHeight="44.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="248.0" minHeight="4.0" prefHeight="40.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="562.0" minHeight="10.0" prefHeight="366.0" vgrow="SOMETIMES"/>
+        <RowConstraints />
+        <RowConstraints maxHeight="248.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="248.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="248.0" minHeight="0.0" prefHeight="44.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="248.0" minHeight="4.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="562.0" minHeight="10.0" prefHeight="366.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
         <ImageView fitHeight="469.0" fitWidth="522.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
             <image>
-                <Image url="C:\Users\maria\OneDrive\Desktop\alb.jpg"/>
+                <Image url="D:\facultate\map\SocialNetwork\alb.jpg" />
             </image>
         </ImageView>
         <ImageView fitHeight="418.0" fitWidth="522.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
             <image>
-                <Image url="C:\Users\maria\OneDrive\Desktop\login.jpg"/>
+                <Image url="D:\facultate\map\SocialNetwork\login.jpg" />
             </image>
         </ImageView>
-        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="292.0" prefWidth="520.0" GridPane.columnIndex="2"
-                    GridPane.rowIndex="5">
+        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="292.0" prefWidth="520.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
             <children>
-                <Button fx:id="loginButton1" layoutX="-105.0" layoutY="2.0" mnemonicParsing="false"
-                        onAction="#loginButtonClicked" prefHeight="25.0" prefWidth="239.0" text="Login"/>
+                <Button fx:id="loginButton1" layoutX="-105.0" layoutY="13.0" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="25.0" prefWidth="239.0" style="-fx-background-color: #8477bf;" text="Login" textFill="WHITE" />
+            <Button fx:id="createANewAccountButton" layoutX="-105.0" layoutY="55.0" mnemonicParsing="false" onAction="#createANewAccountButtonClicked" prefHeight="25.0" prefWidth="239.0" style="-fx-background-color: #8477bf;" text="Create a new account" textFill="WHITE" />
             </children>
         </AnchorPane>
-        <Text fill="#8477bf" fontSmoothingType="LCD" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER"
-              GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Text fill="#8477bf" fontSmoothingType="LCD" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER" wrappingWidth="238.0703125" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <font>
-                <Font name="Calibri" size="48.0"/>
+                <Font name="Calibri" size="55.0" />
             </font>
         </Text>
-        <TextField fx:id="loginUsername1" maxHeight="25.0" maxWidth="134.0" minHeight="9.0" minWidth="10.0"
-                   prefHeight="25.0" prefWidth="134.0" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
-        <Text fill="#8477bf" fontSmoothingType="LCD" strokeWidth="0.0" text="Username" wrappingWidth="107.291015625"
-              GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <TextField fx:id="loginUsername1" maxHeight="25.0" maxWidth="134.0" minHeight="9.0" minWidth="10.0" prefHeight="25.0" prefWidth="134.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Text fill="#8477bf" fontSmoothingType="LCD" strokeWidth="0.0" text="Username" wrappingWidth="107.291015625" GridPane.columnIndex="1" GridPane.rowIndex="3">
             <font>
-                <Font name="Calibri Light" size="24.0"/>
+                <Font name="Calibri Light" size="24.0" />
             </font>
         </Text>
-        <PasswordField fx:id="loginPassword1" maxHeight="24.0" maxWidth="133.0" minHeight="10.0" minWidth="10.0"
-                       prefHeight="24.0" prefWidth="133.0" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
-        <Text fill="#8477bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="112.951171875"
-              GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <PasswordField fx:id="loginPassword1" maxHeight="24.0" maxWidth="133.0" minHeight="10.0" minWidth="10.0" prefHeight="24.0" prefWidth="133.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <Text fill="#8477bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="112.951171875" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <font>
-                <Font name="Calibri Light" size="24.0"/>
+                <Font name="Calibri Light" size="24.0" />
             </font>
         </Text>
     </children>

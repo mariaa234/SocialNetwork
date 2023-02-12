@@ -19,19 +19,7 @@ public class FriendshipRepoDB implements Repository<Tuple<Long, Long>, Friendshi
         this.password = password;
     }
 
-    @Override
-    public int size() {
-        int size = 0;
-        try (Connection connection = DriverManager.getConnection(url, username, password); PreparedStatement statement = connection.prepareStatement("SELECT COUNT(id1) AS size FROM friendship"); ResultSet resultSet = statement.executeQuery()) {
 
-            while (resultSet.next()) {
-                size = resultSet.getInt("size");
-            }
-            return size;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     @Override
     public void save(Friendship entity) {
